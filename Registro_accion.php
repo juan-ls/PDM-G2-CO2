@@ -14,12 +14,7 @@ if ($conn->connect_error) {
 $base1 = mysqli_select_db($conn, '0NVroEWWCo');
 if (!$base1)
 {
-  echo'No se encontró RegistroMedico';
-}
-$base2 = mysqli_select_db($conn,'0NVroEWWCo');
-if (!$base2)
-{
-  echo'No se encontró RegistroPaciente';
+  echo'No se encontró base de datos';
 }
 
 //Se recuperan las variables del registro
@@ -37,11 +32,13 @@ $estado = $_POST['estado'];
 
 if ($estado == 'Médico')
 {
+  echo'Se guardó en registro médico';
   $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
   VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
 elseif ($estado == 'Paciente')
 {
+  echo'Se guardó en registro de paciente';
   $sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
   VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
