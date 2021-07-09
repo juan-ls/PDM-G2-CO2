@@ -11,6 +11,17 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$base1 = mysql_select_db('RegistroMédico');
+if (!$base1)
+{
+  echo'No se encontró RegistroMédico';
+}
+$base2 = mysql_select_db('RegistroPaciente');
+if (!$base2)
+{
+  echo'No se encontró RegistroPaciente';
+}
+
 //Se recuperan las variables del registro
 $nombre = $_POST['nombre'];
 $apPaterno = $_POST['apPaterno'];
@@ -34,12 +45,7 @@ elseif ($estado == 'Paciente')
   VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
 
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "
-<br>" . $conn->error;
-}
+$ejectutar = mysql_query($sql);
 
 $conn->close();
 ?>
