@@ -10,14 +10,28 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-if 
+
+//Se recuperan las variables del registro
+$nombre = $_POST['nombre'];
+$apPaterno = $_POST['apPaterno'];
+$apMaterno = $_POST['apMaterno'];
+$docIdentidad = $_POST['docIdentidad'];
+$sexo = $_POST['sexo'];
+$pais = $_POST['pais'];
+$ciudad = $_POST['ciudad'];
+$correoElec = $_POST['correoElec'];
+$contrasena = $_POST['contraseña'];
+$codigo = $_POST['codigo'];
+$estado = $_POST['estado'];
+if ($estado == 'Médico')
 {
-  $sql = "INSERT INTO Registro (Nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, confirmaCorreo, contraseña, confirmaContraseña, codigo)
-  VALUES ('John', 'Doe', 'john@example.com')";
+  $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
+  VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
-elseif ()
+elseif ($estado == 'Paciente')
 {
-  
+  $sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
+  VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
 
 if ($conn->query($sql) === TRUE) {
