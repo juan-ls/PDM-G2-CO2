@@ -11,12 +11,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$base1 = mysql_select_db('RegistroMédico');
+$base1 = mysqli_select_db($conn, 'RegistroMédico');
 if (!$base1)
 {
   echo'No se encontró RegistroMédico';
 }
-$base2 = mysql_select_db('RegistroPaciente');
+$base2 = mysqli_select_db($conn,'RegistroPaciente');
 if (!$base2)
 {
   echo'No se encontró RegistroPaciente';
@@ -34,6 +34,7 @@ $correoElec = $_POST['correoElec'];
 $contrasena = $_POST['contraseña'];
 $codigo = $_POST['codigo'];
 $estado = $_POST['estado'];
+
 if ($estado == 'Médico')
 {
   $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
@@ -45,7 +46,7 @@ elseif ($estado == 'Paciente')
   VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
 
-$ejectutar = mysqli_query($sql);
+$result = $conn->query($sql);
 
 $conn->close();
 ?>
