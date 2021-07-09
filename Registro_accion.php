@@ -11,12 +11,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$base1 = mysqli_select_db($conn, 'RegistroMedico');
+$base1 = mysqli_select_db($conn, '0NVroEWWCo');
 if (!$base1)
 {
   echo'No se encontró RegistroMedico';
 }
-$base2 = mysqli_select_db($conn,'RegistroPaciente');
+$base2 = mysqli_select_db($conn,'0NVroEWWCo');
 if (!$base2)
 {
   echo'No se encontró RegistroPaciente';
