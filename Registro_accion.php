@@ -45,7 +45,7 @@ elseif ($estado == 'Paciente')
   VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
 
-$ejectutar = mysql_query($sql);
+$ejectutar = mysqli_query($sql);
 
 $conn->close();
 ?>
