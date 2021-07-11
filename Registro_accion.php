@@ -52,7 +52,7 @@ elseif ($estado == 'Paciente')
 
 $conn->query($sql); 
 
-//mysqli_query($conn, $sql);
+mysqli_query($conn, $sql);
 
 $conn->close();
 ?>
