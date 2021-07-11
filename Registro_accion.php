@@ -40,9 +40,10 @@ $estado = $_POST['estado'];
 if ($estado == 'Médico')
 {
   echo'Se guardó en registro médico';
-  $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
-  VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
-  
+  //$sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
+  //VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
+  $sql = "INSERT INTO RegistroMedico (nombre)
+  VALUES ('Juan')";
 }
 elseif ($estado == 'Paciente')
 {
