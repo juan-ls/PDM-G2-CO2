@@ -53,5 +53,7 @@ elseif ($estado == 'Paciente')
 
 $conn->query($sql); 
 
+echo $nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo
+
 $conn->close();
 ?>
