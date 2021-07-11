@@ -10,12 +10,19 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+else{
+  echo'Conexion completada';
+}
 
 $base1 = mysqli_select_db($conn, '0NVroEWWCo');
 if (!$base1)
 {
   echo'No se encontró base de datos';
 }
+else{
+  echo'Se encontró la base de datos';
+}
+
 
 //Se recuperan las variables del registro
 $nombre = $_POST['nombre'];
@@ -35,6 +42,7 @@ if ($estado == 'Médico')
   echo'Se guardó en registro médico';
   $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
   VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
+  
 }
 elseif ($estado == 'Paciente')
 {
@@ -43,7 +51,7 @@ elseif ($estado == 'Paciente')
   VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
 }
 
-$result = $conn->query($sql);
+$conn->query($sql); 
 
 $conn->close();
 ?>
