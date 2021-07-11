@@ -46,8 +46,10 @@ if ($estado == 'Médico')
 elseif ($estado == 'Paciente')
 {
   echo'Se guardó en registro de paciente';
-  $sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
-  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
+  //$sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
+  //VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
+  $sql = "INSERT INTO RegistroPaciente (nombre)
+  VALUES ('$nombre')";
 }
 
 $conn->query($sql); 
