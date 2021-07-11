@@ -11,16 +11,16 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 else{
-  echo'Conexion completada';
+  //echo'Conexion completada';
 }
 
 $base1 = mysqli_select_db($conn, '0NVroEWWCo');
 if (!$base1)
 {
-  echo'No se encontró base de datos';
+  //echo'No se encontró base de datos';
 }
 else{
-  echo'Se encontró la base de datos';
+  //echo'Se encontró la base de datos';
 }
 
 
@@ -39,13 +39,13 @@ $estado = $_POST['estado'];
 
 if ($estado == 'Médico')
 {
-  echo'Se guardó en registro médico';
+  //echo'Se guardó en registro médico';
   $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
   VALUES ('Juan', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 elseif ($estado == 'Paciente')
 {
-  echo'Se guardó en registro de paciente';
+  //echo'Se guardó en registro de paciente';
   $sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
   VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
@@ -54,10 +54,10 @@ elseif ($estado == 'Paciente')
 
 $registro=mysqli_query($conn, $sql);
 if(!$registro){
-  echo'Error al registrarse';
+  //echo'Error al registrarse';
 }
 else{
-  echo'Se registró exitosamente';
+  //echo'Se registró exitosamente';
 }
 
 $conn->close();
