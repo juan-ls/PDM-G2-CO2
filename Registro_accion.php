@@ -43,7 +43,7 @@ if ($estado == 'Médico')
   //$sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
   //VALUES ($nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo)";
   $sql = "INSERT INTO RegistroMedico (docIdentidad)
-  VALUES ('Juan')";
+  VALUES ('$docIdentidad')";
 }
 elseif ($estado == 'Paciente')
 {
