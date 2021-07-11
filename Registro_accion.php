@@ -53,7 +53,11 @@ elseif ($estado == 'Paciente')
 
 $conn->query($sql); 
 
-//echo'$nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo'
+mysqli_query($conn, $sql);
+
+echo<<<END
+$nombre
+END;
 
 $conn->close();
 ?>
