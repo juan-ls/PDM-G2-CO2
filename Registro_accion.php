@@ -49,12 +49,18 @@ elseif ($estado == 'Paciente')
   //$sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
   //VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
   $sql = "INSERT INTO RegistroPaciente (nombre)
-  VALUES ('.$nombre.')";
+  VALUES ('Juan')";
 }
 
 $conn->query($sql); 
 
-mysqli_query($conn, $sql);
+$registro=mysqli_query($conn, $sql);
+if(!$registro){
+  echo'Error al registrarse'
+}
+else{
+  echo'Se registró exitosamente'
+}
 
 $conn->close();
 ?>
