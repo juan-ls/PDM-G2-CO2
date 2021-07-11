@@ -40,19 +40,17 @@ $estado = $_POST['estado'];
 if ($estado == 'Médico')
 {
   echo'Se guardó en registro médico';
-  $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
+  $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
   VALUES ('Juan', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 elseif ($estado == 'Paciente')
 {
   echo'Se guardó en registro de paciente';
-  //$sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
-  //VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
-  $sql = "INSERT INTO RegistroPaciente (nombre)
-  VALUES ('Juan')";
+  $sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
+  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 
-$conn->query($sql); 
+//$conn->query($sql); 
 
 $registro=mysqli_query($conn, $sql);
 if(!$registro){
