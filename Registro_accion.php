@@ -41,18 +41,18 @@ if ($estado == 'Médico')
 {
   echo'Se guardó en registro médico';
   $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
-  VALUES ('$nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo')";
+  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 elseif ($estado == 'Paciente')
 {
   echo'Se guardó en registro de paciente';
   $sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contrasena, codigo)
-  VALUES ('$nombre, $apPaterno, $apMaterno, $docIdentidad, $sexo, $pais, $departamento, $ciudad, $correoElec, $contrasena, $codigo')";
+  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 
 $conn->query($sql); 
 
-mysqli_query($conn, $sql);
+//mysqli_query($conn, $sql);
 
 $conn->close();
 ?>
