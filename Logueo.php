@@ -1,4 +1,57 @@
-﻿<!DOCTYPE html>
+<?php
+$servername = "remotemysql.com";
+$username = "0NVroEWWCo";
+$password = "R7eEz8VkDg";
+$dbname = "0NVroEWWCo";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+else{
+  //echo'Conexion completada';
+}
+
+$docIdentidad = $_POST['docIdentidad'];
+$contrasena = $_POST['contraseña'];
+
+if ($estado == 'Médico')
+{
+  //Obt5iene info de paciente
+  $sql = "SELECT * FROM Historial WHERE id ='$docIdentidad' and contraseña = '$contrasena'";
+  $info = mysqli_query($conn,$sql);
+}
+
+if ($info){
+    if (mysqli_num_rows($info) == 1){
+        session_start();
+        $_SESSION['is_login'] = true;
+        $_SESSION['id'] = $id;
+        header("Location: PaginaPaciente.php");
+    }
+    else{
+        echo'Usuario y/o contraseña inválidos';
+    }
+}
+
+
+
+
+
+$registro=mysqli_query($conn, $sql);
+if(!$registro){
+  header'';
+}
+else{
+  //echo'Se registró exitosamente';
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
 
 <html lang="es">
 
@@ -139,20 +192,22 @@
         
         <p id="detalle">¡Bienvenido!<br />En esta sección podrá acceder a su cuenta, comprobar el estado de su dispositivo JLife y 
         revisar el historial de los pacientes.</p>
-
-        <div id="UsuarioContraseña">
-            <h4 id="ingresoDatos">Ingrese su documento de identidad y su contraseña:</h4>
-            <p>Usuario: </p>
-            <input type="text" name="Usuario" maxlength="8" />
-            <p><br />Contraseña: </p>
-            <input type="password" name="Contraseña" />
-            <p><br /></p>
-            <a href='HistorialPaciente.html'><button class="buton buton1">Iniciar sesión</button></a>
-            <p><br /></p>
-            <a id="olvidado" href="https://www.google.com.pe/">Olvidé la contraseña</a>
-            <p><br /></p>
-            <a href="Registro.html">Registrarse</a>
-            <p><br /><br /></p><p><br /><br /></p><p><br /><br /></p><p><br />
-        </div>
+       
+        <form method='post' action='Logueo.php'>
+            <div id="UsuarioContraseña">
+                <h4 id="ingresoDatos">Ingrese su documento de identidad y su contraseña:</h4>
+                <p>Usuario: </p>
+                <input type="text" name="Usuario" maxlength="8" />
+                <p><br />Contraseña: </p>
+                <input type="password" name="Contraseña" />
+                <p><br /></p>
+                <a href='Paginaaciente.html'><button class="buton buton1">Iniciar sesión</button></a>
+                <p><br /></p>
+                <a id="olvidado" href="https://www.google.com.pe/">Olvidé la contraseña</a>
+                <p><br /></p>
+                <a href="Registro.html">Registrarse</a>
+                <p><br /><br /></p><p><br /><br /></p><p><br /><br /></p><p><br />
+            </div>
+        </form>            
     </body>
 </html>
