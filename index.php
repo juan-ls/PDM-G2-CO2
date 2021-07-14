@@ -116,7 +116,7 @@
                 <li class="Opcion1">Manual Electrónico</li></a>
                 <a href="Contacto.html">
                 <li class="Opcion1">Contacto</li></a>
-                <a href="Logueo.html">
+                <a href="Logueo.php">
                 <li class="Opcion2">Mi JLife</li></a>
             </ul>
         </menu>
