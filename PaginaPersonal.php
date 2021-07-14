@@ -1,4 +1,49 @@
-﻿<!DOCTYPE html>
+<?php
+$servername = "remotemysql.com";
+$username = "0NVroEWWCo";
+$password = "R7eEz8VkDg";
+$dbname = "0NVroEWWCo";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+else{
+  //echo'Conexion completada';
+}
+
+$docIdentidad = $_POST['docIdentidad'];
+$contrasena = $_POST['contraseña'];
+
+if ($estado == 'Paciente')
+{
+  //Obt5iene info de paciente
+  $sql = "SELECT Historial.id, Historial.fecha, Historial.ppm, Historial.so2 from(
+	SELECT '1' as id, docIdentidad, contraseña from RegistroPaciente
+	union all
+	select '1' as id, docIdentidad, contraseña from RegistroMedico 
+) Registro
+left join (
+	select '1' as match, fecha, id, ppm, so2 from Historial
+) Historial on (Historial.id = Registro.docIdentidad) or (Historial.match = Registro.id)
+
+WHERE Registro.docIdentidad = '$id' and Registro.contraseña = '$contrasena'";
+  $info = mysqli_query($conn,$sql);
+}
+
+$resultado = mysqli_query($conexion, $usuario);
+while($row = mysqli_fetch_assoc($resultado)) {
+	echo $row["id"];
+	echo $row["fecha"];
+	echo $row["ppm"];
+	echo $row["so2"];
+}
+
+?>
+
+<!DOCTYPE html>
 
 <html lang="es">
     <head>
