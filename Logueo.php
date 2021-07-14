@@ -16,6 +16,7 @@ else{
 
 $docIdentidad = $_POST['docIdentidad'];
 $contrasena = $_POST['contraseña'];
+$estado = $_POST['estado'];
 
 if ($estado == 'Médico')
 {
@@ -29,7 +30,12 @@ if ($info){
         session_start();
         $_SESSION['is_login'] = true;
         $_SESSION['id'] = $id;
+      if (){
+        header("Location: PaginaMedico.php");
+      }
+      else (){
         header("Location: PaginaPaciente.php");
+      }
     }
     else{
         echo'Usuario y/o contraseña inválidos';
@@ -193,7 +199,7 @@ $conn->close();
         <p id="detalle">¡Bienvenido!<br />En esta sección podrá acceder a su cuenta, comprobar el estado de su dispositivo JLife y 
         revisar el historial de los pacientes.</p>
        
-        <form method='post' action='Logueo.php'>
+        <form method='post' action='PaginaPersonal.php'>
             <div id="UsuarioContraseña">
                 <h4 id="ingresoDatos">Ingrese su documento de identidad y su contraseña:</h4>
                 <p>Usuario: </p>
