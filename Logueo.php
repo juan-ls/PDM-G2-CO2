@@ -26,7 +26,7 @@ if ($info){
         session_start();
         $_SESSION['is_login'] = true;
         $_SESSION['id'] = $id;
-        header("Location: PaginaPaciente.php");
+        header("Location: PaginaPersonal.php");
     }
     else{
         echo'Usuario y/o contraseña inválidos';
