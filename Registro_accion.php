@@ -60,6 +60,8 @@ else{
   //echo'Se registró exitosamente';
 }
 
+header('Location: Logueo.php');
+
 $conn->close();
 ?>
 
