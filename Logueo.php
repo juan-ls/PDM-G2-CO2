@@ -17,12 +17,9 @@ else{
 $docIdentidad = $_POST['docIdentidad'];
 $contrasena = $_POST['contraseña'];
 
-if ($estado == 'Médico')
-{
-  //Obt5iene info de paciente
-  $sql = "SELECT * FROM Historial WHERE id ='$docIdentidad' and contraseña = '$contrasena'";
-  $info = mysqli_query($conn,$sql);
-}
+//Obt5iene info de paciente
+$sql = "SELECT * FROM Historial WHERE id ='$docIdentidad' and contraseña = '$contrasena'";
+$info = mysqli_query($conn,$sql);
 
 if ($info){
     if (mysqli_num_rows($info) == 1){
