@@ -29,24 +29,11 @@ if ($info){
         session_start();
         $_SESSION['is_login'] = true;
         $_SESSION['id'] = $id;
-      if (){
-        header("Location: PaginaMedico.php");
-      }
-      else (){
         header("Location: PaginaPaciente.php");
-      }
     }
     else{
         echo'Usuario y/o contraseña inválidos';
     }
-}
-
-$registro=mysqli_query($conn, $sql);
-if(!$registro){
-  header'';
-}
-else{
-  //echo'Se registró exitosamente';
 }
 
 $conn->close();
