@@ -40,13 +40,13 @@ $estado = $_POST['estado'];
 if ($estado == 'Médico')
 {
   //echo'Se guardó en registro médico';
-  $sql = "INSERT INTO RegistroMedico (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
+  $sql = "INSERT INTO RegistroMedico (Nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
   VALUES ('Juan', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 elseif ($estado == 'Paciente')
 {
   //echo'Se guardó en registro de paciente';
-  $sql = "INSERT INTO RegistroPaciente (nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
+  $sql = "INSERT INTO RegistroPaciente (Nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
   VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 
@@ -62,3 +62,4 @@ else{
 
 $conn->close();
 ?>
+
