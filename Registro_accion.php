@@ -39,14 +39,14 @@ $estado = $_POST['estado'];
 if ($estado == 'Médico')
 {
   //echo'Se guardó en registro médico';
-  $sql = "INSERT INTO RegistroMedico (Nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
-  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
+  $sql = "INSERT INTO RegistroMedico (Nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, ciudad, correoElec, contraseña, codigo)
+  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 elseif ($estado == 'Paciente')
 {
   //echo'Se guardó en registro de paciente';
-  $sql = "INSERT INTO RegistroPaciente (Nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, departamento, ciudad, correoElec, contraseña, codigo)
-  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
+  $sql = "INSERT INTO RegistroPaciente (Nombre, apPaterno, apMaterno, docIdentidad, sexo, pais, ciudad, correoElec, contraseña, codigo)
+  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 
 //$conn->query($sql); 
