@@ -186,7 +186,7 @@ $conn->close();
                 <p><br />Contraseña: </p>
                 <input type="password" name="Contraseña" />
                 <p><br /></p>
-                <a href='Paginaaciente.html'><button class="buton buton1">Iniciar sesión</button></a>
+                <a href='PaginaPersonal.php'><button class="buton buton1">Iniciar sesión</button></a>
                 <p><br /></p>
                 <a id="olvidado" href="https://www.google.com.pe/">Olvidé la contraseña</a>
                 <p><br /></p>
