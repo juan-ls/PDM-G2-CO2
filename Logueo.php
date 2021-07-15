@@ -1,8 +1,8 @@
 <?php
-$servername = "remotemysql.com";
-$username = "0NVroEWWCo";
-$password = "R7eEz8VkDg";
-$dbname = "0NVroEWWCo";
+$servername = "sql10.freemysqlhosting.net";
+$username = "sql10425367";
+$password = "atkgWUy5cx";
+$dbname = "sql10425367";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -16,7 +16,6 @@ else{
 
 $docIdentidad = $_POST['docIdentidad'];
 $contrasena = $_POST['contraseña'];
-$estado = $_POST['estado'];
 
 if ($estado == 'Médico')
 {
@@ -41,10 +40,6 @@ if ($info){
         echo'Usuario y/o contraseña inválidos';
     }
 }
-
-
-
-
 
 $registro=mysqli_query($conn, $sql);
 if(!$registro){
