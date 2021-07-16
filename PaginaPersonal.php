@@ -1,4 +1,7 @@
 <?php
+// Your code here!
+
+?><?php
 $servername = "sql10.freemysqlhosting.net";
 $username = "sql10425367";
 $password = "atkgWUy5cx";
@@ -14,30 +17,32 @@ else{
   //echo'Conexion completada';
 }
 
-$docIdentidad = $_POST['docIdentidad'];
-$contrasena = $_POST['contraseña'];
+$docIdentidad = '12345678';
+$contrasena = 'PDM';
+$estado = 'Paciente';
 
-if ($estado == 'Paciente')
-{
-  //Obt5iene info de paciente
-  $sql = "SELECT Historial.id, Historial.fecha, Historial.ppm, Historial.so2 
-  from( SELECT '1' as id, docIdentidad, contraseña from RegistroPaciente 
-  union all select '1' as id, docIdentidad, contraseña from RegistroMedico ) 
-  Registro left join ( select '1' as codigo, fecha, id, ppm, so2 from Historial ) 
-  Historial on (Historial.id = Registro.docIdentidad) or (Historial.codigo = Registro.id) 
-  where Registro.docIdentidad = '1' and Registro.contraseña ='1'";
-  $info = mysqli_query($conn,$sql);
-}
+//Obt5iene info de paciente
+$sql = "SELECT Historial.id as id, Historial.fecha as fecha, Historial.ppm as ppm, Historial.so2 as so2 from( 
+SELECT '2' as id, docIdentidad, contrasena from RegistroPaciente 
+union all 
+select '1' as id, docIdentidad, contrasena from RegistroMedico ) Registro 
+left join ( select '1' as codigo, fecha, id, ppm, so2 from Historial ) Historial 
+on (Historial.id = Registro.docIdentidad) or (Historial.codigo = Registro.id) 
+where Registro.docIdentidad = '$docIdentidad' and Registro.contrasena ='$contrasena'";
+$info = mysqli_query($conn,$sql);
 
-$resultado = mysqli_query($conexion, $usuario);
+//echo $sql;
+$resultado = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($resultado)) {
 	echo $row["id"];
+	echo ' ';
 	echo $row["fecha"];
+	echo ' ';
 	echo $row["ppm"];
+	echo ' ';
 	echo $row["so2"];
+	echo ' ';
 }
-
-?>
 
 <!DOCTYPE html>
 
