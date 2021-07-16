@@ -30,6 +30,7 @@ $apMaterno = $_POST['apMaterno'];
 $docIdentidad = $_POST['docIdentidad'];
 $sexo = $_POST['sexo'];
 $pais = $_POST['pais'];
+$departamento = $_POST['departamento'];
 $ciudad = $_POST['ciudad'];
 $correoElec = $_POST['correoElec'];
 $contrasena = $_POST['contraseña'];
@@ -49,7 +50,7 @@ elseif ($estado == 'Paciente')
 {
   //echo'Se guardó en registro de paciente';
   $sql = "INSERT INTO RegistroPaciente
-  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
+  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
 }
 
 //$conn->query($sql); 
