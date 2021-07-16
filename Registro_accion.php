@@ -42,6 +42,8 @@ if ($estado == 'Médico')
   //echo'Se guardó en registro médico';
   $sql = "INSERT INTO RegistroMedico
   VALUES ('$apMaterno', '$apPaterno', '$ciudad', '$codigo', '$contrasena', '$correoElec', '$departamento', '$docIdentidad', '$nombre', '$pais', '$sexo')";
+  $sql2 = "INSERT INTO Historial ('id', 'contraseña')
+  VALUES ('$docIdentidad', '$contrasena')";
   echo <<< END
   $sql
   END;
@@ -51,12 +53,22 @@ elseif ($estado == 'Paciente')
   //echo'Se guardó en registro de paciente';
   $sql = "INSERT INTO RegistroPaciente
   VALUES ('$apMaterno', '$apPaterno', '$ciudad', '$codigo', '$contrasena', '$correoElec', '$departamento', '$docIdentidad', '$nombre', '$pais', '$sexo')";
+  $sql2 = "INSERT INTO Historial ('id', 'contraseña')
+  VALUES ('$docIdentidad', '$contrasena')";
 }
 
 //$conn->query($sql); 
 
 $registro=mysqli_query($conn, $sql);
 if(!$registro){
+  //echo'Error al registrarse';
+}
+else{
+  //echo'Se registró exitosamente';
+}
+
+$registro2=mysqli_query($conn, $sql2);
+if(!$registro2){
   //echo'Error al registrarse';
 }
 else{
