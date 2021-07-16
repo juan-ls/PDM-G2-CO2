@@ -20,16 +20,12 @@ $contrasena = $_POST['contraseña'];
 if ($estado == 'Paciente')
 {
   //Obt5iene info de paciente
-  $sql = "SELECT Historial.id, Historial.fecha, Historial.ppm, Historial.so2 from(
-	SELECT '1' as id, docIdentidad, contraseña from RegistroPaciente
-	union all
-	select '1' as id, docIdentidad, contraseña from RegistroMedico 
-) Registro
-left join (
-	select '1' as match, fecha, id, ppm, so2 from Historial
-) Historial on (Historial.id = Registro.docIdentidad) or (Historial.match = Registro.id)
-
-WHERE Registro.docIdentidad = '$id' and Registro.contraseña = '$contrasena'";
+  $sql = "SELECT Historial.id, Historial.fecha, Historial.ppm, Historial.so2 
+  from( SELECT '1' as id, docIdentidad, contraseña from RegistroPaciente 
+  union all select '1' as id, docIdentidad, contraseña from RegistroMedico ) 
+  Registro left join ( select '1' as codigo, fecha, id, ppm, so2 from Historial ) 
+  Historial on (Historial.id = Registro.docIdentidad) or (Historial.codigo = Registro.id) 
+  where Registro.docIdentidad = '1' and Registro.contraseña ='1'";
   $info = mysqli_query($conn,$sql);
 }
 
@@ -164,42 +160,40 @@ while($row = mysqli_fetch_assoc($resultado)) {
     </head>
 
     <body>
-        <header class="encabezado">
-            <ul>
-                <li>
-                    <img src="Icono.jpg" alt="Icono" height="130" width="250">
-                    <h1 class="titulo">Concentrador de oxígeno <br />inteligente</h1>
-                </li>
-                <li>
-                    <img src="oxigenoterapiaref.jpg" id="imagenref" alt="imagenref">
-                </li>
-            </ul>
+    <header class="encabezado">
+        <ul>
+            <li>
+                <img src="Icono.jpg" alt="Icono" height="130" width="250">
+                <h1 class="titulo">Concentrador de oxígeno <br />inteligente</h1>
+            </li>
+            <li>
+                <img src="oxigenoterapiaref.jpg" id="imagenref" alt="imagenref">
+            </li>
+        </ul>
 
-        </header>
+    </header>
 
-        <div class="divisorSel">
-            <h3 id="histPaciente"> >> Historial de paciente</h3>
-        </div>
+    <div class="divisorSel">
+        <h3 id="histPaciente"> >> Historial de paciente</h3>
+    </div>
 
-        <div id="fondoTabla">
+    <div id="fondoTabla">
 
-            <p id="instruccion">Bienvenido, <br /><br /></p>
+        <p id="instruccion">Bienvenido, <br /><br /></p>
 
-            <p id="subborde"></p>
-            <p id="instruccion">Ingrese la fecha para acceder al historial médico: <br /><br /></p>
+        <p id="subborde"></p>
+        <p id="instruccion">Ingrese la fecha para acceder al historial médico: <br /><br /></p>
 
-            <table width="500" cellspacing="20">
-                <tr>
-                    <td class="textoRegistro">Fecha de revisión: </td>
-                    <td><input type="date" name="fecha" height="20" maxlength="20" /></td>
-                </tr>
+        <table width="500" cellspacing="20">
+            <tr>
+                <td class="textoRegistro">Fecha de revisión: </td>
+                <td><input type="date" name="fecha" height="20" maxlength="20" /></td>
+            </tr>
 
-            </table>
+        </table>
 
-            <input class="buton" type="submit" value="Buscar" name="Fecha" />
-            <p><br /><br /></p><p><br /><br /></p>
-        </div>
-
-
+        <input class="buton" type="submit" value="Buscar" name="Fecha" />
+        <p><br /><br /></p><p><br /><br /></p>
+    </div>
     </body>
 </html>
