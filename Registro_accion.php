@@ -42,7 +42,7 @@ if ($estado == 'Médico')
   //echo'Se guardó en registro médico';
   $sql = "INSERT INTO RegistroMedico
   VALUES ('$apMaterno', '$apPaterno', '$ciudad', '$codigo', '$contrasena', '$correoElec', '$departamento', '$docIdentidad', '$nombre', '$pais', '$sexo')";
-  $sql2 = "INSERT INTO Historial ('id', 'contraseña')
+  $sql2 = "INSERT INTO Historial (id, contraseña)
   VALUES ('$docIdentidad', '$contrasena')";
   echo <<< END
   $sql
@@ -53,7 +53,7 @@ elseif ($estado == 'Paciente')
   //echo'Se guardó en registro de paciente';
   $sql = "INSERT INTO RegistroPaciente
   VALUES ('$apMaterno', '$apPaterno', '$ciudad', '$codigo', '$contrasena', '$correoElec', '$departamento', '$docIdentidad', '$nombre', '$pais', '$sexo')";
-  $sql2 = "INSERT INTO Historial ('id', 'contraseña')
+  $sql2 = "INSERT INTO Historial (id, contraseña)
   VALUES ('$docIdentidad', '$contrasena')";
 }
 
