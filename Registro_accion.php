@@ -41,7 +41,7 @@ if ($estado == 'Médico')
 {
   //echo'Se guardó en registro médico';
   $sql = "INSERT INTO RegistroMedico
-  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
+  VALUES ('$apMaterno', '$apPaterno', '$ciudad', '$codigo', '$contrasena', '$correoElec', '$departamento', '$docIdentidad', '$nombre', '$pais', '$sexo')";
   echo <<< END
   $sql
   END;
@@ -50,7 +50,7 @@ elseif ($estado == 'Paciente')
 {
   //echo'Se guardó en registro de paciente';
   $sql = "INSERT INTO RegistroPaciente
-  VALUES ('$nombre', '$apPaterno', '$apMaterno', '$docIdentidad', '$sexo', '$pais', '$departamento', '$ciudad', '$correoElec', '$contrasena', '$codigo')";
+  VALUES ('$apMaterno', '$apPaterno', '$ciudad', '$codigo', '$contrasena', '$correoElec', '$departamento', '$docIdentidad', '$nombre', '$pais', '$sexo')";
 }
 
 //$conn->query($sql); 
